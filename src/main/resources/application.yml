@@ -1,0 +1,30 @@
+server:
+  port: 8080  # Application port
+application:
+  config:
+    trace: true
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/vendor_db
+    username: root  # Replace with your database username
+    password: root  # Replace with your database password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Updates schema; good for development
+    show-sql: true  # Enables SQL query logging
+    properties:
+      hibernate:
+        format_sql: true  # Formats SQL output
+
+logging:
+  level:
+    root: INFO  # General logging level
+    com.your_project.package: DEBUG  # Adjust to match your project package for detailed logs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # Exposes all management endpoints for monitoring
+
